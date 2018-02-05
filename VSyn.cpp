@@ -115,8 +115,9 @@ void VSyn::setup(){
     gismo.bang("/yaritori/load" , &inum);
 //    csv2buffter.createAgents(gismo.add.buf, "0-agents.csv");
 
-
+#ifndef PROJECTOR_UNCONNECTED
     scManager.setFullScreen();
+#endif
 }
 
 

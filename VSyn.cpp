@@ -34,6 +34,9 @@ void VSyn::setup(){
     
     ////////////////////
     
+    //Invoke Osc-hub
+    invokingApp("/Users/hana/Desktop/runYaritoriOsc.app");
+    
     //Set Metro
     metro = new Metro(GISMO_UPDATE_INTERVAL);
     

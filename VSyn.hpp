@@ -94,6 +94,9 @@
 #include "Csv2Buffer.hpp"
 #include "Buffer2Csv.hpp"
 
+//To invoke osc-hub
+#include "InvokingApp.hpp"
+
 
 
 class VSyn : public Event {

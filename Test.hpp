@@ -20,6 +20,7 @@
 #include "Performance.hpp"
 #include "getArraySize.h"
 #include "SoundTrigger.hpp"
+#include "InvokingApp.hpp"
 
 
 class Test {

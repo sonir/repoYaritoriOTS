@@ -34,7 +34,7 @@ void RippleManager::setEvents() {
     
     auto agRipple = [&](void* args){ //<- keep this desctiption
         param_u* params = (param_u *)args;
-        float id = params[0].ival;
+        int id = params[0].ival;
         float size = params[1].fval;
         float time = params[2].fval;
         

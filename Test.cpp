@@ -16,6 +16,10 @@ Test :: Test(){
 
 void Test :: setup(){
     
+  
+//    invokingApp("/Users/uozm/Documents/boxes/dev_box/of_v0.9.8_osx_release/apps/myApps/yaritoriOTS/bin/data/mi.app");
+
+    
     //Making lambda event
     auto f = [&](void* args){
         

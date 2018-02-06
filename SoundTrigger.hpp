@@ -14,6 +14,9 @@
 #include "ofxOsc.h"
 #include "ofxGismo.h"
 #include "ag_shape.h"
+//Performance
+#include "Performance.hpp"
+
 
 
 #define SOUND_HOST_FOR_TRIGGER "192.168.1.202"
@@ -64,6 +67,9 @@
 #define EF_VAL_DEATH 0.0f //1.0f//1.0f
 
 #endif
+
+
+#define PERFORMER_SOUND_NUM 16
 
 
 
@@ -124,6 +130,16 @@ class SoundTrigger {
                 
             };
             gismo.lambdaAdd("/soundTriggerWithAgent" , f2);
+            
+            //EV :: SoundTriggerWithSjQ
+            auto f3 = [&](void *args){
+                
+                ag_t *tmp = (ag_t *)args;
+                int performer = irand()%PERFORMER_NUM;
+                int sound = irand()%PERFORMER_SOUND_NUM;
+                
+                
+            };
             
             
             

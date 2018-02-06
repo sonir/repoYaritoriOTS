@@ -355,16 +355,16 @@ void interactWith(ag_t *focus , ag_t *target){
         //Do action according to the result of size check
         if( size_check == 1){ //Is larger
 
-            move(focus, &target->posi);
+            move(focus, &target->posi); // Go to the dicrection
             
-            condition_e cond = CHASE;
-            if ( attackCheck( distance(focus->posi, target->posi) , &target->size) ) cond = DMG;
-            if ( deadCheck(&target->size, &target->active) ) cond = DEATH;
+            condition_e cond = CHASE; // set the CHASE flg
+            if ( attackCheck( distance(focus->posi, target->posi) , &target->size) ) cond = DMG; //If the attack was successed, record the flag.
+            if ( deadCheck(&target->size, &target->active) ) cond = DEATH; // If the oposit was dead, set the condition( corectly, DEATH flag means KILL
             
             if( !conditionCheck(focus->condition, cond) ){
                 
                 focus->condition=cond;
-                gismo.bang("/soundTriggerWithAgent", focus); //trigger sound
+//                gismo.bang("/soundTriggerWithAgent", focus); //trigger sound
                 gismo.bang("/bullet_from_agent", &focus->agid); //trigger bullet
                 reacted(focus); //notice the agent reacted
                 
@@ -381,6 +381,7 @@ void interactWith(ag_t *focus , ag_t *target){
                 
                 target->size-=AG_DMG; //decrease the target size in 50% rate.
                 focus->size+=AG_DMG; //Increasing the atacked agent
+                focus->condition = DMG;
                 reacted(focus); //notice the agent reacted
 
             }
@@ -394,7 +395,7 @@ void interactWith(ag_t *focus , ag_t *target){
                 //do running code
                 focus->condition=RUN;
                 reacted(focus); //notice the agent reacted
-                gismo.bang("/soundTriggerWithAgent", focus);
+//                gismo.bang("/soundTriggerWithAgent", focus);
                 
                 
             }

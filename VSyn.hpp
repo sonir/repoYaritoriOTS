@@ -127,18 +127,28 @@ class VSyn : public Event {
             };
             gismo.lambdaAdd("/gismo/added", f);
 
+            
+            
             //ripplle by reacted
             auto f2 = [&](void* args){ //<- keep this desctiption
                 param_u *params = (param_u *)args;
+                int agid = params[0].ival; //ID
+                
+                //Sending ripple
                 param_u rippleArg[3];
-                rippleArg[0].ival = params[0].ival;
-                rippleArg[1].fval = DEFAULT_RIPPLE_SIZE;
-                rippleArg[2].fval = DEFAULT_RIPPLE_TIME;
+                rippleArg[0].ival = agid;
+                rippleArg[1].fval = DEFAULT_RIPPLE_SIZE; //X
+                rippleArg[2].fval = DEFAULT_RIPPLE_TIME; //Y
                 gismo.bang("/ag_ripple" , rippleArg);
+                
+                //Trigger Sound
+                gismo.bang( "/soundTriggerWithAgent", gismo.getAgent(agid) ); //trigger sound
+
                 
                 
             };
             gismo.lambdaAdd("/gismo/reacted", f2);
+            
             
             
             //Run or Stop gismodel in PHASE2
@@ -170,6 +180,7 @@ class VSyn : public Event {
             gismo.lambdaAdd("/yaritori/run", f3);
             
             
+            
             //event for added agent
             auto f4 = [&](void* args){ //<- keep this desctiption
                 
@@ -180,6 +191,7 @@ class VSyn : public Event {
                 
             };
             gismo.lambdaAdd("/yaritori/save", f4);
+            
             
             
             //Loading agents and shapes

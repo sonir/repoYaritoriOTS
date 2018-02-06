@@ -129,3 +129,11 @@ void SoundTrigger::trigger(void *args){
 }
 
 
+void SoundTrigger::triggerSjq(ofxOscMessage m){
+    
+    //Send Created Message
+    sender.sendMessage(m,false);
+    
+}
+
+

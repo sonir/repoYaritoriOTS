@@ -142,7 +142,17 @@ class VSyn : public Event {
                 gismo.bang("/ag_ripple" , rippleArg);
                 
                 //Trigger Sound
-                gismo.bang( "/soundTriggerWithAgent", gismo.getAgent(agid) ); //trigger sound
+                float dice = frand();
+
+                if(dice<=SOUND_SJQ_RATE){
+                    
+                    gismo.bang( "/soundTriggerWithPerformer", gismo.getAgent(agid) );
+
+                }else{
+
+                    gismo.bang( "/soundTriggerWithAgent", gismo.getAgent(agid) ); //trigger sound
+                    
+                }
 
                 
                 

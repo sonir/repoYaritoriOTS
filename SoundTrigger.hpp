@@ -35,6 +35,9 @@
 */
 
 
+//SOUND TRIGGER Rate for SjQ
+#define SOUND_SJQ_RATE 0.005
+
 //Yaritori SPEAKER REGION :: (Num Multi Screen)
 #define REGION_NUM 3
 
@@ -135,12 +138,22 @@ class SoundTrigger {
             auto f3 = [&](void *args){
                 
                 ag_t *tmp = (ag_t *)args;
+                
                 int performer = irand()%PERFORMER_NUM;
                 int sound = irand()%PERFORMER_SOUND_NUM;
+                float efVal = 0.5f;
+                region_e region = whereAmI( tmp->posi , gismo.width_rate);
                 
+                ofxOscMessage m;
+                m.setAddress("/performance/trigger");
+                m.addIntArg(performer);
+                m.addIntArg(sound);
+                m.addFloatArg(efVal);
+                m.addIntArg((int)region);
+                triggerSjq(m);
                 
             };
-            
+            gismo.lambdaAdd("/soundTriggerWithPerformer" , f3);
             
             
         }
@@ -152,6 +165,7 @@ class SoundTrigger {
     
         void foo();
         void trigger(void *args);
+        void triggerSjq(ofxOscMessage m);
         //void setSound(int ag_id);
 
     

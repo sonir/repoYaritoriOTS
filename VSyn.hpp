@@ -206,7 +206,7 @@ class VSyn : public Event {
             
             //event for added agent
             auto f4 = [&](void* args){ //<- keep this desctiption
-                cout << "@@@@@@@@@@" <<endl;
+                cout << "EVENT :: /yaritori/save was invoked." <<endl;
                 //draw your code
                 param_u *params = (param_u *)args;
                 buffer2csv.saveAgents(gismo.agents.buf,gismo.agents.count, "0-agent.csv");
@@ -271,9 +271,7 @@ class VSyn : public Event {
             
             //Make QuiteEvent
             auto f9 = [&](void* args){ //<- keep this desctiption
-//                param_u param;
-//                param.ival=1;
-//                gismo.bang("/yaritori/save", &param);
+                cout << "EVENT :: /yaritori/quite was invoked." <<endl;
                 ofExit();
                 
             };

@@ -9,8 +9,8 @@
 #ifndef TimerTimer_hpp
 #define TimerTimer_hpp
 
-#define QUIT_HOUR 18
-#define QUIT_MINUTES 0
+#define QUIT_HOUR -1//18
+#define QUIT_MINUTES 18//0
 
 
 #include <stdio.h>

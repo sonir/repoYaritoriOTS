@@ -40,11 +40,23 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 
 void ofApp::exit(){
+
+    cout << "Start termination." << endl;
+
     
     cout << "EXIT: KILL ALL NODE" << endl;
     exe("killall node");
+
     
-    
+    int flg = 1;
+    GismoManager& gismo = GismoManager::getInstance();
+    gismo.bang("/yaritori/save", &flg);
+    cout << ": : :" << endl;
+    cout << "Auto save finished." << endl;
+    cout << "waiting..." << endl;
+    ofSleepMillis(2000);
+    cout << "finished" << endl;
+
 }
 
 

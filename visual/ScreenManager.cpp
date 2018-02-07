@@ -95,21 +95,21 @@ void ScreenManager::initMask(){
         mask_indices[n] = i*8 + 4;
         n++;
     }
+
+    mask_pos[0].set(ofVec2f(0., 0.) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[1].set(ofVec2f(0.923, 0.027) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[2].set(ofVec2f(0.979, 0.86) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[3].set(ofVec2f(0., 0.883) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
     
-    mask_pos[0].set(ofVec2f(0.004, 0.006) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[1].set(ofVec2f(0.933, 0.04) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[2].set(ofVec2f(0.9855, 0.872) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[3].set(ofVec2f(0., 0.8839) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[4].set(ofVec2f(0., 0.048) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[5].set(ofVec2f(0.994, 0.04) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[6].set(ofVec2f(0.9962, 0.94) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[7].set(ofVec2f(0.0054, 0.9552) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
     
-    mask_pos[4].set(ofVec2f(0.00555, 0.0565) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[5].set(ofVec2f(0.994, 0.0514) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[6].set(ofVec2f(0.9962, 0.9502) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[7].set(ofVec2f(0.0064, 0.9652) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    
-    mask_pos[8].set(ofVec2f(0.0681, 0.046) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[9].set(ofVec2f(0.997, 0.026) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[10].set(ofVec2f(0.946, 0.91) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[11].set(ofVec2f(0.0457, 0.908) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[8].set(ofVec2f(0.063, 0.023) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[9].set(ofVec2f(0.997, 0.) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[10].set(ofVec2f(0.946, 0.886) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[11].set(ofVec2f(0.0435, 0.89) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
     
     for(int i = 0; i < 3; i++){
         mask_verts[i * 8].set(DISPLAY_WIDTH * i, 0);

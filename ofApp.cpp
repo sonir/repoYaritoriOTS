@@ -70,6 +70,8 @@ void ofApp::keyReleased(int key){
         case 's':
             flg=2;
             break;
+
+            
             
     }
     

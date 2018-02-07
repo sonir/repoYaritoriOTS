@@ -131,8 +131,9 @@ void VSyn::setup(){
 
 void VSyn::update(){
     
-    
-//    cout << frand() << endl;
+    //Quit this app when closing time
+    quitTimer->update();
+
     
 #ifdef DEBUG_MODE
     cout << "######### ag=" << gismo.agents.count << endl;

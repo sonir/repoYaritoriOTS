@@ -9,6 +9,7 @@
 #ifndef Test_hpp
 #define Test_hpp
 
+
 #include <stdio.h>
 #include <cassert>
 #include "ofxGismo.h"
@@ -21,7 +22,6 @@
 #include "getArraySize.h"
 #include "SoundTrigger.hpp"
 #include "InvokingApp.hpp"
-
 
 class Test {
 
@@ -43,9 +43,8 @@ class Test {
 
     
     
+    
         GismoManager& gismo = GismoManager::getInstance(); //Pointer for gismoManager instance
-//        Sound *sound;
-//        SoundTrigger soundTest;
     
 
 

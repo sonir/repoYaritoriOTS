@@ -443,11 +443,6 @@ void Test :: run(){
 
 void Test :: update(){
 
-    
-//    float fval = fade.update();
-//    cout << "fval=" << fval << endl;
-//    if(fval>0.5f) fade.reset();
-//    fade.bang();
         
 }
 

@@ -99,6 +99,10 @@
 //To invoke osc-hub
 #include "InvokingApp.hpp"
 
+//Timer to close this app
+#include "TimeTimer.hpp"
+
+
 
 
 class VSyn : public Event {
@@ -202,7 +206,7 @@ class VSyn : public Event {
             
             //event for added agent
             auto f4 = [&](void* args){ //<- keep this desctiption
-                
+                cout << "@@@@@@@@@@" <<endl;
                 //draw your code
                 param_u *params = (param_u *)args;
                 buffer2csv.saveAgents(gismo.agents.buf,gismo.agents.count, "0-agent.csv");
@@ -263,6 +267,18 @@ class VSyn : public Event {
                 
             };
             gismo.lambdaAdd("/sound/push", f8);
+            
+            
+            //Make QuiteEvent
+            auto f9 = [&](void* args){ //<- keep this desctiption
+//                param_u param;
+//                param.ival=1;
+//                gismo.bang("/yaritori/save", &param);
+                ofExit();
+                
+            };
+            gismo.lambdaAdd("/yaritori/quite", f9);
+            
             
         }
     
@@ -333,6 +349,7 @@ class VSyn : public Event {
         Test *myTest; //Test Instance
         GismoManager& gismo = GismoManager::getInstance(); //Pointer for gismoManager instance
         DrawAgentsWithChar drawAgentsWithChar;
+    
         //Sound sound; //AudioTrigger with OSC
         //Sound
         SoundTrigger soundTrigger;    
@@ -341,7 +358,11 @@ class VSyn : public Event {
         RippleManager ripple;
         visual_container_t visual;
     
-    VboRenderer renderer;
+        VboRenderer renderer;
+    
+        //SystemManagement
+        TimeTimer *quitTimer = new TimeTimer(QUIT_HOUR, QUIT_MINUTES, "/yaritori/quite"); //timer to quite
+
     
 };
 

@@ -17,6 +17,7 @@
 using namespace std;
 
 int invokingApp(string appName);
+int exe(string cmd);
 
 //appName should include the its path
 //Ex.     invokingApp("/Users/uozm/Documents/boxes/dev_box/of_v0.9.8_osx_release/apps/myApps/yaritoriOTS/bin/data/mi.app");

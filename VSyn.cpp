@@ -35,7 +35,10 @@ void VSyn::setup(){
     ////////////////////
     
     //Invoke Osc-hub
-    invokingApp("/Users/sonir/Desktop/runYaritoriOsc.app");
+//    invokingApp("/Users/sonir/Desktop/runYaritoriOsc.app");
+    
+    //Boot OSC hub
+
     
     //Set Metro
     metro = new Metro(GISMO_UPDATE_INTERVAL);
@@ -108,7 +111,7 @@ void VSyn::setup(){
     //Do Test Code
     //this->test();
     
-    myTest->setup();
+//    myTest->setup();
     //Do Test Code
 //    this->test();
     
@@ -117,6 +120,8 @@ void VSyn::setup(){
     int inum = 1;
     gismo.bang("/yaritori/load" , &inum);
 //    csv2buffter.createAgents(gismo.add.buf, "0-agents.csv");
+    
+    
 
 #ifndef PROJECTOR_UNCONNECTED
     scManager.setFullScreen();

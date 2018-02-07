@@ -36,6 +36,18 @@ void ofApp::draw(){
 //    ofDrawBitmapString("fps = " + ofToString(ofGetFrameRate()), 10, 20);
 }
 
+
+//--------------------------------------------------------------
+
+void ofApp::exit(){
+    
+    cout << "EXIT: KILL ALL NODE" << endl;
+    exe("killall node");
+    
+    
+}
+
+
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     vsyn.keyPressed(key);

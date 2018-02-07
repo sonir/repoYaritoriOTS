@@ -17,5 +17,13 @@ int invokingApp(string appName){
     sprintf(cmd, "open %s", appName.c_str());
     system(cmd);
     
+    return 0;
+    
+}
+
+
+int exe(string cmd){
+    
+    system(cmd.c_str());
     
 }

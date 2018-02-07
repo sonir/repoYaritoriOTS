@@ -104,6 +104,10 @@ class VSyn : public Event {
     public:
         VSyn(){
             
+            //Boot osc-hub
+            exe("sh boot.sh"); //This code must be write here, before instanciate Network.cpp.
+            ofSleepMillis(2000);
+            
             //SetupEvents
             
             //event for added agent

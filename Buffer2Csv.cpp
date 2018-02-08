@@ -10,6 +10,9 @@
 
 using namespace std;
 
+
+
+
 void Buffer2Csv:: saveAgents(ag_t *agents ,  int index_count, string withFile){
     
     cout << "----" << endl;
@@ -90,6 +93,7 @@ void Buffer2Csv::saveShapes(ag_shape_t *shapes, int index_count, string withFile
         
         
     }
+    
     
     
     //Close opened file

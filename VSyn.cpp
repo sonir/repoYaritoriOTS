@@ -42,6 +42,9 @@ void VSyn::setup(){
     
     //Set Metro
     metro = new Metro(GISMO_UPDATE_INTERVAL);
+    sysEventInterval = new Metro(SYS_UPDATE_INTERVAL);
+    saveInterval = new Metro(SAVE_INTERVAL);
+
     
     ofBackground(255);
     ofSetCircleResolution(50);
@@ -131,8 +134,21 @@ void VSyn::setup(){
 
 void VSyn::update(){
     
+    
     //Quit this app when closing time
-    quitTimer->update();
+    if(sysEventInterval->update()){
+
+        quitTimer->update();
+        bakTimer->update();
+        
+    }
+    
+    if(saveInterval->update()){
+        
+        int ival = 1;
+        gismo.bang("/yaritori/save", &ival);
+        
+    }
 
     
 #ifdef DEBUG_MODE

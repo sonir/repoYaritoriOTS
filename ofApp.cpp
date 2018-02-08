@@ -44,7 +44,7 @@ void ofApp::exit(){
     cout << "Start termination." << endl;
 
     
-    cout << "EXIT: KILL ALL NODE" << endl;
+    cout << "EXIT: KILL ALL NODE(closing the process of git-hub)" << endl;
     exe("killall node");
 
     
@@ -53,9 +53,9 @@ void ofApp::exit(){
     gismo.bang("/yaritori/save", &flg);
     cout << ": : :" << endl;
     cout << "Auto save finished." << endl;
-    cout << "waiting..." << endl;
-    ofSleepMillis(2000);
-    cout << "finished" << endl;
+    cout << "waiting the file writing..." << endl;
+    ofSleepMillis(1000);
+    cout << "yaritori all finished." << endl;
 
 }
 

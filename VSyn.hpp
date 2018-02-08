@@ -17,7 +17,10 @@
 #define PERFORMANCE_MODE
 #define GISMO_UPDATE_INTERVAL 0.033
 
-/// Includes ///
+
+//SYSTEMS
+#define SYS_UPDATE_INTERVAL 10.0f
+#define SAVE_INTERVAL 3600.0f
 
 //#define DEBUG_MODE
 #define DUMMY_AG_A_NUM 0
@@ -204,7 +207,7 @@ class VSyn : public Event {
             
             
             
-            //event for added agent
+            //event for agent save
             auto f4 = [&](void* args){ //<- keep this desctiption
                 cout << "EVENT :: /yaritori/save was invoked." <<endl;
                 //draw your code
@@ -214,7 +217,30 @@ class VSyn : public Event {
                 
             };
             gismo.lambdaAdd("/yaritori/save", f4);
+
             
+            
+            //event for agent backup
+            auto f4b = [&](void* args){ //<- keep this desctiption
+                cout << "EVENT :: /yaritori/save was invoked." <<endl;
+                //draw your code
+                
+                char ag_bak_file_src[256];
+                char shape_bak_file_src[256];
+                sprintf(ag_bak_file_src, "%d_%d_%d_%d-agent.csv" , ofGetMonth(), ofGetDay(),ofGetHours(), ofGetMinutes());
+                string ag_bak_file(ag_bak_file_src);
+                
+                sprintf(shape_bak_file_src, "%d_%d_%d_%d-shape.csv" , ofGetMonth(), ofGetDay(),ofGetHours(), ofGetMinutes());
+                string shape_bak_file(shape_bak_file_src);
+
+                
+                param_u *params = (param_u *)args;
+                buffer2csv.saveAgents(gismo.agents.buf,gismo.agents.count, ag_bak_file);
+                buffer2csv.saveShapes(ag_shapes, gismo.agents.count, shape_bak_file);
+                
+            };
+            gismo.lambdaAdd("/yaritori/backup", f4b);
+
             
             
             //Loading agents and shapes
@@ -332,6 +358,8 @@ class VSyn : public Event {
         line_t aLine;
         Bullet *bullet;
         Metro *metro;
+        Metro *sysEventInterval;
+        Metro *saveInterval;
     
         //Yaritori Core
         Csv2Buffer csv2buffer;
@@ -360,6 +388,7 @@ class VSyn : public Event {
     
         //SystemManagement
         TimeTimer *quitTimer = new TimeTimer(QUIT_HOUR, QUIT_MINUTES, "/yaritori/quite"); //timer to quite
+        TimeTimer *bakTimer = new TimeTimer(BAK_HOUR, BAK_MINUTES, "/yaritori/backup"); //timer to quite
 
     
 };

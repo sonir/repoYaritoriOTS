@@ -9,8 +9,13 @@
 #ifndef TimerTimer_hpp
 #define TimerTimer_hpp
 
-#define QUIT_HOUR -1//18
-#define QUIT_MINUTES 18//0
+//Quite Time
+#define QUIT_HOUR 18
+#define QUIT_MINUTES 1
+//Save Time
+#define BAK_HOUR -1 //<- "-1" is wild card
+#define BAK_MINUTES 30//0
+
 
 
 #include <stdio.h>

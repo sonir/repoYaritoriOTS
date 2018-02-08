@@ -16,6 +16,23 @@ void Network :: setup(){
     receiver.setup(IN_PORT);
     current_msg_string = 0;
     
+    sender.setup(OUT_IP, OUT_PORT);
+    
+    //event for reporting agent count
+    auto f = [&](void* args){ //<- keep this desctiption
+        //draw your code
+        param_u *params = (param_u *)args;
+        system_state_t state;
+        state.ag_count = params[0].ival;
+        state.end_hour = params[1].ival;
+        state.end_minutes = params[2].ival;
+
+        sendSystemState(state);
+        
+        
+    };
+    gismo.lambdaAdd("/report/system_state", f);
+    
 }
 
 void Network :: update(){
@@ -109,6 +126,15 @@ void Network :: update(){
             //Save now Conditions
             int flg = 1;
             gismo.bang("/yaritori/save", &flg);
+
+            
+            
+        } else if (m.getAddress() == "/yaritori/end_time"){
+            
+            param_u args[2];
+            args[0].ival = m.getArgAsInt32(0); //hour
+            args[1].ival = m.getArgAsInt32(1); //min
+            gismo.bang("/yaritori/end_time", args);
 
             
             
@@ -228,6 +254,20 @@ void Network::dispParams(ag_shape_t shape){
     
     cout << "----" << endl;
     
+    
+}
+
+
+
+void Network::sendSystemState(system_state_t states)
+{
+    
+    ofxOscMessage m;
+    m.setAddress("/report/system_state");
+    m.addIntArg(states.ag_count);
+    m.addIntArg(states.end_hour);
+    m.addIntArg(states.end_minutes);
+    sender.sendMessage(m,false);
     
 }
 

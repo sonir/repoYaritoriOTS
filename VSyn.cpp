@@ -141,6 +141,13 @@ void VSyn::update(){
         quitTimer->update();
         bakTimer->update();
         
+        param_u args[3];
+        args[0].ival = gismo.agents.count;
+        args[1].ival = quitTimer->hour;
+        args[2].ival = quitTimer->minutes;
+
+        gismo.bang("/report/system_state" , args);
+        
     }
     
     if(saveInterval->update()){

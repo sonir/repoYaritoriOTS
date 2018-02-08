@@ -304,6 +304,22 @@ class VSyn : public Event {
             gismo.lambdaAdd("/yaritori/quite", f9);
             
             
+            
+            //Make Event to set EndTime
+            auto f10 = [&](void* args){ //<- keep this desctiption
+                cout << "EVENT :: /yaritori/endt_time was invoked." <<endl;
+                param_u *params = (param_u *)args;
+                
+                quitTimer->hour = params[0].ival;
+                quitTimer->minutes = params[1].ival;
+                
+                cout << quitTimer->hour << " : " << quitTimer->minutes << endl;
+
+                
+            };
+            gismo.lambdaAdd("/yaritori/end_time", f10);
+            
+            
         }
     
         void setup();

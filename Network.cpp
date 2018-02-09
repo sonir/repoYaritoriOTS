@@ -137,6 +137,13 @@ void Network :: update(){
             gismo.bang("/yaritori/end_time", args);
 
             
+        } else if (m.getAddress() == "/yaritori/add_duration"){
+            
+            param_u arg;
+            arg.fval = m.getArgAsFloat(0);
+            gismo.bang("/yaritori/add_duration", &arg);
+
+            
             
         } else if ( m.getAddress() == "/fps" ) { //Set fps
             

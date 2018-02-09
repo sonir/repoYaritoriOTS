@@ -126,17 +126,17 @@ class VSyn : public Event {
 
                 param_u soloArg[2];
                 soloArg[0].ival = params[0].ival; //set agid
-                soloArg[1].fval = SOLO_DURATION; //set duration
+                soloArg[1].fval = (SOLO_DURATION * durationRatioWhenAdd); //set duration
                 gismo.bang("/solo" , soloArg); //bang solo
                 
                 param_u dur;
-                dur.fval = SOLO_DURATION; //set duration
+                dur.fval = (SOLO_DURATION * durationRatioWhenAdd); //set duration
                 gismo.bang("/visual/timed_invert", &dur); //bang timed invert
                 
                 param_u rpl[3];
                 rpl[0].ival = params[0].ival; //agid
                 rpl[1].fval = SOLO_RIPPLE_SIZE; //size ratio
-                rpl[2].fval = SOLO_RIPPLE_TIME;//2.4f; //time ratio
+                rpl[2].fval = ( SOLO_RIPPLE_TIME * durationRatioWhenAdd );//2.4f; //time ratio
                 gismo.bang("/ag_ripple" , rpl);
 
                 
@@ -255,6 +255,18 @@ class VSyn : public Event {
                 
             };
             gismo.lambdaAdd("/yaritori/load", f5);
+            
+            
+            
+            //Loading agents and shapes
+            auto f5b = [&](void* args){ //<- keep this desctiption
+                
+                //draw your code
+                param_u *param = (param_u *)args;
+                durationRatioWhenAdd = param->fval;
+                
+            };
+            gismo.lambdaAdd("/yaritori/add_duration", f5b);
 
             
             
@@ -405,6 +417,9 @@ class VSyn : public Event {
         //SystemManagement
         TimeTimer *quitTimer = new TimeTimer(QUIT_HOUR, QUIT_MINUTES, "/yaritori/quite"); //timer to quite
         TimeTimer *bakTimer = new TimeTimer(BAK_HOUR, BAK_MINUTES, "/yaritori/backup"); //timer to quite
+    
+        //Animation
+        float durationRatioWhenAdd = 1.0f;
 
     
 };

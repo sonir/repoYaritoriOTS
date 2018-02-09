@@ -160,12 +160,15 @@ class VSyn : public Event {
                 //Trigger Sound
                 float dice = frand();
 
-                if(dice<=SOUND_SJQ_RATE){
-                    
+                float actuate_rate_sjq;
+                float rate;
+                rate = ((float)gismo.agents.count/800.0f);
+                actuate_rate_sjq = SOUND_SJQ_RATE * rate;
+
+                if(dice<= actuate_rate_sjq){
                     gismo.bang( "/soundTriggerWithPerformer", gismo.getAgent(agid) );
 
                 }else{
-
                     gismo.bang( "/soundTriggerWithAgent", gismo.getAgent(agid) ); //trigger sound
                     
                 }

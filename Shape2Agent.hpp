@@ -23,6 +23,7 @@
 #include "ofxGismo.h"
 
 ag_t shape2Agent(ag_shape_t shape);
+posi_t makePositionToAdd();
 
 
 

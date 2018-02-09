@@ -32,12 +32,48 @@ ag_t shape2Agent(ag_shape_t shape){
 
     }
     
+    //OverWrite the agent position with cetering with 3sceen
+    ag.posi = makePositionToAdd();
+    
     cout << "view: " << ag.view << endl;
     cout << "size: " << ag.size << endl;
     cout << "mov: " << ag.mov << endl;
     cout << "----" << endl;
     
     return ag;
+    
+    
+}
+
+
+posi_t makePositionToAdd(){
+    
+    posi_t posi;
+    int screen_id = irand()%3;
+    
+    
+//    cout << "@@" << screen_id << endl;
+    switch(screen_id){
+            
+        case 0:
+            posi.x = WORLD_WIDTH * ( 0.12f + ( 0.1f * frand() ) );
+            break;
+
+        case 1:
+            posi.x = WORLD_WIDTH * ( 0.46f + ( 0.1f * frand() ) );
+            break;
+
+        case 2:
+            posi.x = WORLD_WIDTH * ( 0.8f + ( 0.1f * frand() ) );
+            break;
+            
+    }
+    
+    posi.y = ( WORLD_HEIGHT*0.4f ) + ( 0.2f * frand() ) ;
+    
+//    cout << "@@" << posi.x << "," << posi.y << endl;
+    
+    return posi;
     
     
 }

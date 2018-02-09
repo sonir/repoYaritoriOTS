@@ -439,6 +439,11 @@ void Test :: run(){
     assert(snd.effect_val == EF_VAL_DEATH);
     cout << "SoundTrigger::ag2Sound is OK" << endl;
     
+    
+    //Test makePositionToAdd in Shape2Agent
+//    posi_t myPosi = makePositionToAdd();
+//    assert(myPosi.x == )
+//    
 }
 
 void Test :: update(){

@@ -97,19 +97,21 @@ void ScreenManager::initMask(){
     }
 
     mask_pos[0].set(ofVec2f(0., 0.) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[1].set(ofVec2f(0.923, 0.027) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[2].set(ofVec2f(0.979, 0.86) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[3].set(ofVec2f(0., 0.883) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[1].set(ofVec2f(0.926801, 0.019) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[2].set(ofVec2f(0.986001, 0.855899) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[3].set(ofVec2f(0., 0.8829) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
     
-    mask_pos[4].set(ofVec2f(0., 0.048) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[5].set(ofVec2f(0.994, 0.04) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[6].set(ofVec2f(0.9962, 0.94) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[7].set(ofVec2f(0.0054, 0.9552) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[4].set(ofVec2f(0., 0.0471) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[5].set(ofVec2f(0.989999, 0.0371) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[6].set(ofVec2f(0.9937, 0.930898) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[7].set(ofVec2f(0.0034, 0.9551) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
     
-    mask_pos[8].set(ofVec2f(0.063, 0.023) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[9].set(ofVec2f(0.997, 0.) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[10].set(ofVec2f(0.946, 0.886) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
-    mask_pos[11].set(ofVec2f(0.0435, 0.89) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[8].set(ofVec2f(0.0598999, 0.017) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[9].set(ofVec2f(0.992999, 0.) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[10].set(ofVec2f(0.941999, 0.875798) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+    mask_pos[11].set(ofVec2f(0.0415999, 0.882396) * ofVec2f(DISPLAY_WIDTH, DISPLAY_HEIGHT));
+  
+
     
     for(int i = 0; i < 3; i++){
         mask_verts[i * 8].set(DISPLAY_WIDTH * i, 0);
